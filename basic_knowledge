@@ -1,0 +1,104 @@
+condition statements:
+    if <condition>; then
+        commands
+    [elif <condition>; then
+        commands]...
+    [else
+        commands]
+    fi
+loop statements:
+    for i in 1 2 3 4
+        <do|{>
+            commands
+       <done|}>
+    
+    for i in `commands`
+        <do|{>
+            commands
+       <done|}>
+    
+    for i             #if [in range] is ignored, $@ is the default
+        <do|{>
+            commands
+       <done|}>
+    
+    while commands
+        <do|{>
+            commands
+       <done|}>
+    
+    until commands
+        <do|{>
+            commands
+       <done|}>
+    **. a.if any questions, thinking about whether single/double quotes are missing;
+        b.after while and until often follow by test or [] or [[]]
+        c.if any questions, thinking about whether variable is not initialized before using
+
+declare a variables:
+    let var=value       #between var and value the white space can't appear;and in this form, value can be a arithmetic expression
+        let a=0
+	let a=[$]a+1   # equal to a=$(([$]a+1)) or ((a=i[$]a+1))
+    var=value    # in this form, value only a single value can't be a expression
+delcare a function:
+    [function] func_name(){
+        commands
+    }
+pass argments to a function:
+    func_name arg1 arg2 ...    # arguments referenced in $1,$2,... in func body
+    *.we can't reference script arguments in func body directly, if we want reference script arugments in func body we can pass $n as a func arguments,then reference in func body, for example:
+        yang_script 1 2 3 4
+	yang_func $3      # we can use $1 in func body to reference yang_script's $3 
+pass arguments to a script:    
+    script_name arg1 arg2 ...  # arguments referenced in $1,$2,... in script
+    
+how to a arithmetic operation then assign to a variable:
+    a=$(([$]var+1))
+    ((a=[$]var+1))
+how to assign a variable with the result of commands:
+    a=$(command[|commands])
+    a=`command[|commands]`
+how to group commands:
+    ([ ]command[command;]...[; ])
+    { command[;command]...;[ ]}
+    *.the difference both above two groups are () will fork a shell to execute commands and {} execute commands in current shell, so the results of () will not affect current shell , {} opposite. that is whether environment variables and variables assignments will affect follows commands  # for example, PATH
+complex variable operation:
+  replace operator:
+    ${varname:-word} #if varname exist and not null then return varname value,if not return word
+    ${varname:=word} #if varname exist and not null then return varname value, if not define varname with word and return word
+    ${varname:?message} #if varname exist and not null then return varname value,if not return message and exit current script,if message ignored,then return 
+"parameter null or not set"
+
+    ${varname:+word} # if varname exist and not null then return word ,if not return null
+  pattern match operator:
+    ${varname#pattern} #if pattern match the head of varname value, then truncate the minimum match and return the remains
+    ${varname##pattern} #if pattern match the head of varname value, then truncate the maximum match and return the remains
+    ${varname%pattern} #if pattern match the end of varname value, then truncate the minimum match and return the remains
+    ${varname%%pattern} # if pattern match the end of varname value, then truncate the maximum match and return remains
+    ${varname/pattern/string} #replace only the first appear
+    ${varname//pattern/string} #replace all appear
+    ${varname/#pattern/string} #repalce the  start of varname value only
+    ${varname/%pattern/string} #repalce the  end of varname value only
+    ${<@|*>/a/b} #replace each of $@ then return the replaced list. # and % is available
+
+test:
+    https://github.com/lianrenjujishou/Documentation_Manual/blob/master/linuxcommandset/test(no%20finished)(1).txt
+multiple conditions:
+    [[ expression ]] #expression same as test or [ ], but [[]] can use logic symbol &&,||,! and ==,!= for pattern match, and =~ for regex match
+    *. space is very important with in [[]], almost everywhere
+strong reference:
+    '' # so-called "strong reference" means the variable will not be replace with its value within the ''
+weak reference:
+    "" # so-called "wealk reference" means the variable will be replace with its value within the ""
+annotation: 
+    https://blog.csdn.net/lansesl2008/article/details/20558369/
+$x:
+    $0: name of the shell script
+    $1,$2...: positional arguments of shell script
+    $*:represent all positonal argments as one string
+    $@:pass all positonal arguments from $1
+    $$: process id of current running shell script
+    $?:exit status of last command
+    $#:the number of positonal arguments passed to shell script
+    $!:the last process id background
+    $-:echo shell current options, the same as set command

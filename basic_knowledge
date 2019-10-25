@@ -87,6 +87,7 @@ complex variable operation:
     ${<@|*>/a/b} #replace each of $@ then return the replaced list. # and % is available
 
 test:
+    https://www.cnblogs.com/post/ReadAuth?blogId=257905&PostId=11737895&url=%2Flianrenjujishou%2Fprotected%2Fp%2F11737895.html
     https://github.com/lianrenjujishou/Documentation_Manual/blob/master/linuxcommandset/test(no%20finished)(1).txt
 multiple conditions:
     [[ expression ]] #expression same as test or [ ], but [[]] can use logic symbol &&,||,! and ==,!= for pattern match, and =~ for regex match

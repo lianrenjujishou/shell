@@ -43,7 +43,7 @@ loop statements:
 declare a variables:
     let var=value       #between var and value the white space can't appear;and in this form, value can be a arithmetic expression
         let a=0
-	let a=[$]a+1   # equal to a=$(([$]a+1)) or ((a=i[$]a+1))
+	let a=[$]a+1   # equal to a=$(([$]a+1)) or ((a=[$]a+1))
     var=value    # in this form, value only a single value can't be a expression
 delcare a function:
     [function] func_name(){

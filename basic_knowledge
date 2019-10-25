@@ -21,6 +21,11 @@ loop statements:
         <do|{>
             commands
        <done|}>
+       
+    for ((init;condition;self-increment|self-decrement));
+        <do|{>
+	    commands
+	<done|}>
     
     while commands
         <do|{>

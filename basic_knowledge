@@ -113,7 +113,7 @@ test:
     问题 ( EXPRESSION )形式到底咋用? 
 
 multiple conditions:
-    [[ expression ]] #expression same as test or [ ], but [[]] can use logic symbol &&,||,! and ==,!= for pattern match, and =~ for regex match
+    [[ expression ]] #expression same as test or [ ], but [[]] can use logic symbol &&,|| and ==,!= for pattern match, and =~ for regex match
     *. space is very important with in [[]], almost everywhere
 strong reference:
     '' # so-called "strong reference" means the variable will not be replace with its value within the ''

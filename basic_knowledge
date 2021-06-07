@@ -89,6 +89,29 @@ complex variable operation:
 test:
     https://www.cnblogs.com/post/ReadAuth?blogId=257905&PostId=11737895&url=%2Flianrenjujishou%2Fprotected%2Fp%2F11737895.html
     https://github.com/lianrenjujishou/Documentation_Manual/blob/master/linuxcommandset/test(no%20finished)(1).txt
+    例子:
+    数字之间的比较: -eq -ne -lt -gt -ge -le 
+     if [ 1 -eq/-ne/-lt/-gt/-le/-ge 2];then command; fi
+    字符串之间的比较: ==/= != < > 
+     if ["x" ==/=/!=/>/<"y"]; then command; fi //逐字符按axcii进行比较
+    文件是否存在: -f -e  //-e相当于 -f | -d
+     if [ -f /home/file ]; then command; fi
+    目录是否存在: -d -e
+     if [ -d /home/dir ]; then command; fi
+    多个逻辑表达式: && || -a -o
+     if [ -f /home/file ] && [ -d /home/dir ]; then command; fi
+     if [ -f /home/file -a/-o -d /home/dir ]; then command; fi
+
+    [[]]允许在里面使用&&和||: 
+     if [[ -f /home/file &&/|| -d /home/dir ]; then command; fi
+    另外[[]]中还支持=~符号, 而[]中不支持, 当用该符号时,右侧的内容会作为正则表达式和左>边的字符串进行匹配, 通过实践, 最重要的一点是右边模式部分不能用引号括起来: 
+     if [[ "" =~ .a. ]]; then echo 123;fi  //注意 .a. 没有用引号括起来
+
+    help bash 里的CONDITION EXPRESSIONS部分提到了test中的表达式其实指的就是test --help中除了( EXPRESSION ), "! EXPRESSION" "x -a y" "x -o y"剩下的那些.也就是说: 
+     ! EXPRESSION 可以是 ! -n STRING:
+     if [ ! -n "" ];then echo 123; fi
+    问题 ( EXPRESSION )形式到底咋用? 
+
 multiple conditions:
     [[ expression ]] #expression same as test or [ ], but [[]] can use logic symbol &&,||,! and ==,!= for pattern match, and =~ for regex match
     *. space is very important with in [[]], almost everywhere

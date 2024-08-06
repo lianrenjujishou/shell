@@ -86,7 +86,7 @@ complex variable operation:
     ${varname/%pattern/string} #repalce the  end of varname value only
     ${<@|*>/a/b} #replace each of $@ then return the replaced list. # and % is available
 
-test:
+test:  //info test 比 man test有更多的细节
     https://www.cnblogs.com/post/ReadAuth?blogId=257905&PostId=11737895&url=%2Flianrenjujishou%2Fprotected%2Fp%2F11737895.html
     https://github.com/lianrenjujishou/Documentation_Manual/blob/master/linuxcommandset/test(no%20finished)(1).txt
     例子:

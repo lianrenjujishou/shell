@@ -93,7 +93,7 @@ test:
     数字之间的比较: -eq -ne -lt -gt -ge -le 
      if [ 1 -eq/-ne/-lt/-gt/-le/-ge 2];then command; fi
     字符串之间的比较: ==/= != < > 
-     if ["x" ==/=/!=/>/<"y"]; then command; fi //逐字符按axcii进行比较
+     if ["x" ==/=/!=/>/<"y"]; then command; fi //逐字符按axcii进行比较, 一般的man test中对于比较两个字符串相等都只提了单等号,=,没提双等号的事儿,但stackexchange上一个人看到的是单等与双等是同义词. //参考链接: https://unix.stackexchange.com/questions/168284/unix-test-when-to-use-eq-vs-vs-in-test-commands
     文件是否存在: -f -e  //-e相当于 -f | -d
      if [ -f /home/file ]; then command; fi
     目录是否存在: -d -e

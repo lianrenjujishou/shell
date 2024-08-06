@@ -100,7 +100,7 @@ test:
      if [ -d /home/dir ]; then command; fi
     多个逻辑表达式: && || -a -o
      if [ -f /home/file ] && [ -d /home/dir ]; then command; fi
-     if [ -f /home/file -a/-o -d /home/dir ]; then command; fi
+     if [ -f /home/file -a/-o -d /home/dir ]; then command; fi    //注意-a,and或-o,or前后接的是两个表达式,而通过示例也可看出,表达式一般是由 "选项+文件或目录的路径"组成.
 
     [[]]允许在里面使用&&和||: 
      if [[ -f /home/file &&/|| -d /home/dir ]; then command; fi

@@ -60,6 +60,7 @@ pass arguments to a script:
 how to a arithmetic operation then assign to a variable:
     a=$(([$]var+1))
     ((a=[$]var+1))
+    *.另外双圆括号中还可以是条件表达式,如if ((a>5));then ...;fi也是合法的; 由于(())中可以是条件表达式,所以还用于构建多行注释,如((0))&&{注释1;注释2},此时由于0被评估为false,故&&后面的表达式就不会被执行了.
 how to assign a variable with the result of commands:
     a=$(command[|commands])
     a=`command[|commands]`

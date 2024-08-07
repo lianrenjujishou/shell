@@ -133,3 +133,8 @@ $x:
     $#:the number of positonal arguments passed to shell script
     $!:the last process id background
     $-:echo shell current options, the same as set command
+    *.对加双引号和不加双引号$*与$@的理解(下面例子是用for循环解释的,用在echo中也一样,https://www.cnblogs.com/lianrenjujishou/p/18346491中有更具体的说明):
+    for item in $* -> for item in  $1 $2 $3 -> for item in 张三 李四 王五 赵六 孙七 马八
+    for item in $@ -> for item in  $1 $2 $3 -> for item in 张三 李四 王五 赵六 孙七 马八
+    for item in "$*" ->for item in  "$1 $2 $3" -> for item in "张三 李四 王五 赵六 孙七 马八" 
+    for item in "$@" -> for item in  "$1" "$2" "$3" -> for item in "张三 李四" "王五 赵六" "孙七 马八"

@@ -77,6 +77,7 @@ complex variable operation:
 
     ${varname:+word} # if varname exist and not null then return word ,if not return null
   pattern match operator:  //注意pattern部分一般不用单引号或双引号引起来,因为一旦引起来后就不会进行split+glob了,参考:https://www.cnblogs.com/lianrenjujishou/p/18346491
+                                                                                            pattern match:https://www.gnu.org/software/findutils/manual/html_node/find_html/Shell-Pattern-Matching.html
     *.先简单附上一个例子:
                       [root@yang x]# ls
                       a  ab  ac  ad  anotherfile3.txt  ba  bb  bc  bd  file1.txt  file2.txt

@@ -77,6 +77,16 @@ complex variable operation:
 
     ${varname:+word} # if varname exist and not null then return word ,if not return null
   pattern match operator:  //注意pattern部分一般不用单引号或双引号引起来,因为一旦引起来后就不会进行split+glob了,参考:https://www.cnblogs.com/lianrenjujishou/p/18346491
+    *.先简单附上一个例子:
+                      [root@yang x]# ls
+                      a  ab  ac  ad  anotherfile3.txt  ba  bb  bc  bd  file1.txt  file2.txt
+                      [root@yang x]# a="张三 李四 王五 a*"
+                      [root@yang x]# IFS=" "    //IFS默认应该就是空格,看看如果下面的语句得不到期望的结果,这块再显式的设置一下
+                      [root@yang x]# echo "$a"
+                      张三 李四 王五 a*
+                      [root@yang x]# echo $a
+                      张三 李四 王五 a ab ac ad anotherfile3.txt
+
     ${varname#pattern} #if pattern match the head of varname value, then truncate the minimum match and return the remains
     ${varname##pattern} #if pattern match the head of varname value, then truncate the maximum match and return the remains
     ${varname%pattern} #if pattern match the end of varname value, then truncate the minimum match and return the remains

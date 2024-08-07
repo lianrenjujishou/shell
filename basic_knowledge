@@ -76,7 +76,7 @@ complex variable operation:
 "parameter null or not set"
 
     ${varname:+word} # if varname exist and not null then return word ,if not return null
-  pattern match operator:
+  pattern match operator:  //注意pattern部分一般不用单引号或双引号引起来,因为一旦引起来后就不会进行split+glob了,参考:https://www.cnblogs.com/lianrenjujishou/p/18346491
     ${varname#pattern} #if pattern match the head of varname value, then truncate the minimum match and return the remains
     ${varname##pattern} #if pattern match the head of varname value, then truncate the maximum match and return the remains
     ${varname%pattern} #if pattern match the end of varname value, then truncate the minimum match and return the remains

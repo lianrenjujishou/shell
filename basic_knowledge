@@ -65,7 +65,7 @@ how to assign a variable with the result of commands:
     a=$(command[|commands])
     a=`command[|commands]`
 how to group commands:
-    ([ ]command[command;]...[; ])
+    ([ ]command[;command]...[; ])
     { command[;command]...;[ ]}
     *.the difference both above two groups are () will fork a shell to execute commands and {} execute commands in current shell, so the results of () will not affect current shell , {} opposite. that is whether environment variables and variables assignments will affect follows commands  # for example, PATH
 complex variable operation:
